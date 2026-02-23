@@ -1,7 +1,0 @@
-{
-  "/admin/hospitality/page": "app/admin/hospitality/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/api/auth/login/route": "app/api/auth/login/route.js",
-  "/api/auth/me/route": "app/api/auth/me/route.js",
-  "/api/fnb/route": "app/api/fnb/route.js"
-}

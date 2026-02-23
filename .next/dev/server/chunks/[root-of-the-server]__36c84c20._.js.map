@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///Users/chisthong/Downloads/rvmedia-site/app/api/auth/logout/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\nimport { cookies } from \"next/headers\";\n\nexport async function POST() {\n  const cookieStore = await cookies();\n  cookieStore.set(\"admin_token\", \"\", {\n    httpOnly: true,\n    sameSite: \"lax\",\n    secure: process.env.NODE_ENV === \"production\",\n    maxAge: 0,\n    path: \"/\"\n  });\n\n  return NextResponse.json({ ok: true });\n}\n"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe;IACpB,MAAM,cAAc,MAAM,IAAA,4IAAO;IACjC,YAAY,GAAG,CAAC,eAAe,IAAI;QACjC,UAAU;QACV,UAAU;QACV,QAAQ,oDAAyB;QACjC,QAAQ;QACR,MAAM;IACR;IAEA,OAAO,gJAAY,CAAC,IAAI,CAAC;QAAE,IAAI;IAAK;AACtC"}}]
-}
