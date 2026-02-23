@@ -22,17 +22,19 @@ const translations = {
     "page.subtitle":
       "Xem danh sách tour F&B hiện tại. Cập nhật nội dung ở trang quản trị."
   }
-};
+} as const;
+
+type Lang = keyof typeof translations;
 
 export default function FnbPage() {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState<Lang>("en");
   const [items, setItems] = useState<FnbItem[]>([]);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("lang");
     const browserLang = (navigator.language || "").toLowerCase();
     const defaultLang = saved || (browserLang.startsWith("vi") ? "vi" : "en");
-    setLang(defaultLang);
+    setLang(defaultLang as Lang);
   }, []);
 
   useEffect(() => {
@@ -52,11 +54,10 @@ export default function FnbPage() {
   useEffect(() => {
     window.localStorage.setItem("lang", lang);
     document.documentElement.lang = lang;
-    document.title =
-      translations[lang]?.["meta.title"] || translations.en["meta.title"];
+    document.title = translations[lang]["meta.title"];
   }, [lang]);
 
-  const t = useMemo(() => translations[lang] || translations.en, [lang]);
+  const t = useMemo(() => translations[lang], [lang]);
 
   return (
     <>
@@ -73,7 +74,7 @@ export default function FnbPage() {
             className="lang-select"
             aria-label="Language"
             value={lang}
-            onChange={(event) => setLang(event.target.value)}
+            onChange={(event) => setLang(event.target.value as Lang)}
           >
             <option value="en">{t["lang.en"]}</option>
             <option value="vi">{t["lang.vi"]}</option>

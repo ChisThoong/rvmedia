@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/hospitality/layout,_N_T_/admin/hospitality/page,_N_T_/admin/hospitality"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/admin/hospitality/__PAGE__",
+    "/admin/hospitality",
+    "/admin",
+    "/_index",
+    "/_head"
+  ]
+}

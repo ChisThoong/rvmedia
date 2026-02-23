@@ -12,8 +12,9 @@ const getObjectId = (id: string) => {
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const user = await getAuthUser();
   if (!user) {
     return NextResponse.json(
@@ -22,7 +23,7 @@ export async function PUT(
     );
   }
 
-  const objectId = getObjectId(params.id);
+  const objectId = getObjectId(id);
   if (!objectId) {
     return NextResponse.json(
       { ok: false, error: "Invalid id" },
@@ -69,8 +70,9 @@ export async function PUT(
 
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const user = await getAuthUser();
   if (!user) {
     return NextResponse.json(
@@ -79,7 +81,7 @@ export async function DELETE(
     );
   }
 
-  const objectId = getObjectId(params.id);
+  const objectId = getObjectId(id);
   if (!objectId) {
     return NextResponse.json(
       { ok: false, error: "Invalid id" },

@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/hospitality/page": "app/admin/hospitality/page.js",
+  "/admin/landmarks/page": "app/admin/landmarks/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/fnb/[id]/route": "app/api/fnb/[id]/route.js",
+  "/api/fnb/route": "app/api/fnb/route.js",
+  "/api/hospitality/[id]/route": "app/api/hospitality/[id]/route.js",
+  "/api/hospitality/route": "app/api/hospitality/route.js",
+  "/api/landmarks/[id]/route": "app/api/landmarks/[id]/route.js",
+  "/api/landmarks/route": "app/api/landmarks/route.js",
+  "/fnb/page": "app/fnb/page.js",
+  "/page": "app/page.js"
+}

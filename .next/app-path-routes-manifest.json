@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/hospitality/page": "/admin/hospitality",
+  "/admin/landmarks/page": "/admin/landmarks",
+  "/admin/page": "/admin",
+  "/api/auth/login/route": "/api/auth/login",
+  "/api/auth/logout/route": "/api/auth/logout",
+  "/api/auth/me/route": "/api/auth/me",
+  "/api/fnb/[id]/route": "/api/fnb/[id]",
+  "/api/fnb/route": "/api/fnb",
+  "/api/hospitality/[id]/route": "/api/hospitality/[id]",
+  "/api/hospitality/route": "/api/hospitality",
+  "/api/landmarks/[id]/route": "/api/landmarks/[id]",
+  "/api/landmarks/route": "/api/landmarks",
+  "/fnb/page": "/fnb",
+  "/page": "/"
+}
