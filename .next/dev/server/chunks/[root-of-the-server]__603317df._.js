@@ -56,9 +56,14 @@ if (!uri) {
 }
 let client;
 let clientPromise;
+const options = {
+    serverSelectionTimeoutMS: Number(process.env.MONGODB_SERVER_SELECTION_TIMEOUT_MS || 10000),
+    tls: true,
+    tlsAllowInvalidCertificates: process.env.MONGODB_TLS_INSECURE === "true"
+};
 if ("TURBOPACK compile-time truthy", 1) {
     if (!global._mongoClientPromise) {
-        client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongodb$29$__["MongoClient"](uri);
+        client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$mongodb$29$__["MongoClient"](uri, options);
         global._mongoClientPromise = client.connect();
     }
     clientPromise = global._mongoClientPromise;

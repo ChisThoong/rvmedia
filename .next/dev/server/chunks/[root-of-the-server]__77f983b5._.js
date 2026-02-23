@@ -116,8 +116,9 @@ const signToken = (payload)=>__TURBOPACK__imported__module__$5b$project$5d2f$nod
         expiresIn: "7d"
     });
 const verifyToken = (token)=>__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jsonwebtoken$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].verify(token, getJwtSecret());
-const getAuthUser = ()=>{
-    const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])().get("admin_token")?.value;
+const getAuthUser = async ()=>{
+    const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])();
+    const token = cookieStore.get("admin_token")?.value;
     if (!token) {
         return null;
     }
@@ -179,7 +180,11 @@ async function POST(request) {
         if (storedHash) {
             valid = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compare(password, storedHash);
         } else if (storedPassword) {
-            valid = storedPassword === password;
+            if (storedPassword.startsWith("$2")) {
+                valid = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].compare(password, storedPassword);
+            } else {
+                valid = storedPassword === password;
+            }
         }
         if (!valid) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
